@@ -53,7 +53,7 @@ stats <- list(n = nrow(tuition_income_data),
 
 The average net cost for students who choose to live on campus is `r stats$mean_il`
 
-## Multivariate Regression Analysis 
+## Multivariable Regression Analysis 
 
 ```{r}
 #| echo: false
@@ -63,7 +63,10 @@ linear_model <- lm(net_cost ~ income_lvl + campus + state,
 
 ```{r}
 #| echo: false
-tbl_regression(
+#| #| label: tbl-two
+#| tbl-cap: "Multivariable linear regression model"
+#| output-location: slide
+table2 <-tbl_regression(
 	linear_model,
 	intercept = TRUE,
 	label = list(
@@ -72,13 +75,14 @@ tbl_regression(
 		state ~ "State name"
 	))
 ```
+@tbl-two This is a table showing a multivariable analysis of net cost on income level, campus residency, and state name. 
 
 ## Barplot of Income level
 
 ```{r}
 #| echo: false
 #| label: fig-bar
-#| fig-cap: "This is a Barplot"
+#| fig-cap: "This barplot shows the frequency of students in each income bracket"
 ggplot(data.frame(tuition_income_data$income_lvl), aes(x=tuition_income_data$income_lvl)) +
 	geom_bar()
 ```
