@@ -9,23 +9,14 @@ excecute:
  echo: false
 ---
 ## Putting the cost of college tuition into perspective
-
-```{r}
-#| echo: false
-#| output: false
-library(tidyverse)
-library(gtsummary)
-tuition_income_data <- read_csv(here::here("data","tuition_income.csv"))
-col_types = cols(campus = col_factor(levels = c("On Campus",
-																								"Off Campus")), income_lvl = col_factor(levels = c("0 to 30000",
-																																																	 "30001 to 48000", "48001 to 75000",																																																	 "75001 to 110000", "Over 110000")))
-```
-
 **Intro:** College tuition, or should we say the true villain of life. Around the United States your college tuition varys depending on a plethora of factors. This data originally comes from tuitiontracker.org.
+
 ```{r}
 #| echo: false
 #| output: false
 #Read in the data
+library(tidyverse)
+library(gtsummary)
 tuition_income_data <- read_csv(here::here("data","tuition_income.csv"))
 col_types = cols(campus = col_factor(levels = c("On Campus",
 																								"Off Campus")), income_lvl = col_factor(levels = c("0 to 30000",
