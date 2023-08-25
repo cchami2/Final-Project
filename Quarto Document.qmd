@@ -3,18 +3,29 @@ title: " College tuition on a geographic scale"
 author: Chante Hamilton
 format:
  html:
-  theme: yeti
+  theme: minty
 excecute:
  eval: false
  echo: false
 ---
-
+## Putting the cost of college tuition into perspective
 
 ```{r}
 #| echo: false
 #| output: false
 library(tidyverse)
 library(gtsummary)
+tuition_income_data <- read_csv(here::here("data","tuition_income.csv"))
+col_types = cols(campus = col_factor(levels = c("On Campus",
+																								"Off Campus")), income_lvl = col_factor(levels = c("0 to 30000",
+																																																	 "30001 to 48000", "48001 to 75000",																																																	 "75001 to 110000", "Over 110000")))
+```
+
+**Intro:** College tuition, or should we say the true villain of life. Around the United States your college tuition varys depending on a plethora of factors. This data originally comes from tuitiontracker.org.
+```{r}
+#| echo: false
+#| output: false
+#Read in the data
 tuition_income_data <- read_csv(here::here("data","tuition_income.csv"))
 col_types = cols(campus = col_factor(levels = c("On Campus",
 																								"Off Campus")), income_lvl = col_factor(levels = c("0 to 30000",
@@ -63,7 +74,7 @@ linear_model <- lm(net_cost ~ income_lvl + campus + state,
 
 ```{r}
 #| echo: false
-#| #| label: tbl-two
+#| label: tbl-two
 #| tbl-cap: "Multivariable linear regression model"
 #| output-location: slide
 table2 <-tbl_regression(
@@ -74,7 +85,9 @@ table2 <-tbl_regression(
 		campus ~ "On or off-campus",
 		state ~ "State name"
 	))
+table2
 ```
+
 @tbl-two This is a table showing a multivariable analysis of net cost on income level, campus residency, and state name. 
 
 ## Barplot of Income level
@@ -82,7 +95,7 @@ table2 <-tbl_regression(
 ```{r}
 #| echo: false
 #| label: fig-bar
-#| fig-cap: "This barplot shows the frequency of students in each income bracket"
+#| fig-cap: "This barplot shows the frequency of students in each income bracket."
 ggplot(data.frame(tuition_income_data$income_lvl), aes(x=tuition_income_data$income_lvl)) +
 	geom_bar()
 ```

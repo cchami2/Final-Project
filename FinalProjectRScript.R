@@ -24,7 +24,7 @@ table1 <- tbl_summary(
 	modify_footnote(update = everything() ~ NA) |>
 	modify_header(label = "**Variable**", p.value = "**P**")
 
-#Multivariate Regression Analysis
+#Multivariable Regression Analysis
 
 linear_model <- lm(net_cost ~ income_lvl + campus + state,
 									 data = tuition_income_data)
