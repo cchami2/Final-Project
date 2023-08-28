@@ -1,5 +1,5 @@
 ---
-title: " College tuition on a geographic scale"
+title: " College tuition on a national scale"
 author: Chante Hamilton
 format:
  html:
