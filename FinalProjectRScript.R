@@ -6,7 +6,7 @@ library(ggplot2)
 tuition_income_data <- read_csv(here::here("data","tuition_income.csv"))
 col_types = cols(campus = col_factor(levels = c("On Campus",
 																								"Off Campus")), income_lvl = col_factor(levels = c("0 to 30000",
-																																																	 "30001 to 48000", "48001 to 75000",																																																	 "75001 to 110000", "Over 110000")))
+																																																	 "30001 to 48000", "48001 to 75000", "75001 to 110000", "Over 110000")))
 table1 <- tbl_summary(
 	tuition_income_data,
 	by = campus,

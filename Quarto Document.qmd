@@ -77,6 +77,7 @@ table2 <-tbl_regression(
 		state ~ "State name"
 	))
 table2
+inline_text(table2, variable = "state", level = "GA")
 ```
 
 @tbl-two This is a table showing a multivariable analysis of net cost on income level, campus residency, and state name. 
